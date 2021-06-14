@@ -1102,7 +1102,9 @@ def check_list(socks_file):
 def downloadsocks(choice):
     global out_file
     f = open(out_file, "wb")
-    r = requests.get(f"https://proxoid.net/api/getProxy?key={__import__("os").environ.get("PROXOID_KEY")}&countries=all&types={"http,https" if str(choice) == "1" else ("socks4" if str(choice) == "4" else "socks5")}&level=all&speed=0&count=0")
+    type = "http,https" if str(choice) == "1" else ("socks4" if str(choice) == "4" else "socks5")
+    key = __import__("os").environ.get("PROXOID_KEY")
+    r = requests.get(f"https://proxoid.net/api/getProxy?key={key}&countries=all&types={type}&level=all&speed=0&count=0")
     f.write(r.content)
     f.close()
 
