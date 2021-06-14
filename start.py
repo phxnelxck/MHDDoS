@@ -1182,8 +1182,6 @@ def proxydl(out_file, socks_type):
     print("downloading {}'s proxy plz wait".format(socktyper))
     downloadsocks(choice)
     proxies = open(str(out_file)).readlines()
-    check_list(out_file)
-    check_socks(ms)
 
 
 bds = 0
